@@ -1,6 +1,12 @@
 'use client';
 
 import { ArrowRight } from 'lucide-react';
+declare global {
+  interface Window {
+    fbq: (...args: any[]) => void;
+  }
+}
+
 
 export default function Hero() {
   return (
@@ -25,16 +31,26 @@ export default function Hero() {
             </p>
 
             <a
-              href="https://t.me/canalfreesafegreen"
-              target="_blank"
-              rel="noopener noreferrer"
-              id="cta"
-              data-gtm="hero-cta-click"
-              className="cta-button group inline-flex mx-auto md:mx-0"
-            >
-              <span className="relative z-10">QUERO FORRAR AGORA</span>
-              <ArrowRight className="relative z-10 w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1" />
-            </a>
+  href="https://t.me/canalfreesafegreen"
+  target="_blank"
+  rel="noopener noreferrer"
+  id="cta"
+  data-gtm="hero-cta-click"
+  className="cta-button group inline-flex mx-auto md:mx-0"
+  onClick={() => {
+    // Dispara o evento personalizado do Meta Pixel
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+  window.fbq('trackCustom', 'EnterChannel');
+      console.log('Pixel Event: EnterChannel enviado ✅');
+    } else {
+      console.warn('Pixel não detectado ❌');
+    }
+  }}
+>
+  <span className="relative z-10">QUERO FORRAR AGORA</span>
+  <ArrowRight className="relative z-10 w-5 h-5 md:w-6 md:h-6 transition-transform group-hover:translate-x-1" />
+</a>
+
           </div>
 
           <div className="hidden lg:block">
