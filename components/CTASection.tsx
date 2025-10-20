@@ -1,11 +1,11 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from "lucide-react";
 
 export default function CTASection() {
   return (
     <section className="py-12 md:py-16 text-center bg-black">
       <div className="max-w-4xl mx-auto px-6">
         <a
-          href="https://t.me/canalfreesafegreen"
+          href="https://t.me/+hO-V8RTWrJk3MTQx"
           target="_blank"
           rel="noopener noreferrer"
           data-gtm="cta-section-click"
